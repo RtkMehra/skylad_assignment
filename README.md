@@ -1,4 +1,4 @@
-```html
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -459,4 +459,3 @@ Authorization: Bearer &lt;token&gt;
 
 </body>
 </html>
-```
