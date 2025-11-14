@@ -1,63 +1,3 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Skylad Backend Assignment</title>
-  <style>
-    /* ---------- Global Reset ---------- */
-    *, *::before, *::after { box-sizing: border-box; }
-    body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-           Roboto, Helvetica, Arial, sans-serif; line-height:1.6; color:#333;
-           background:#f9fafb; padding:2rem; }
-
-    /* ---------- Typography ---------- */
-    h1{font-size:2.2rem;margin-top:2.5rem;margin-bottom:1rem;color:#2c3e50;}
-    h2{font-size:1.8rem;margin-top:2rem;margin-bottom:0.8rem;color:#34495e;}
-    h3{font-size:1.5rem;margin-top:1.6rem;margin-bottom:0.6rem;color:#3b5998;}
-    h4{font-size:1.25rem;margin-top:1.2rem;margin-bottom:0.5rem;color:#555;}
-    p{margin:0.8rem 0;}
-
-    /* ---------- Links ---------- */
-    a{color:#0066cc;text-decoration:none;}
-    a:hover{text-decoration:underline;}
-
-    /* ---------- Tables ---------- */
-    table{width:100%;border-collapse:collapse;margin:1rem 0;}
-    th, td{border:1px solid #ddd;padding:0.6rem;text-align:left;}
-    th{background:#eaeaea;}
-
-    /* ---------- Code & Pre ---------- */
-    pre{background:#272822;color:#f8f8f2;padding:1rem;overflow:auto;
-        border-radius:4px;margin:1rem 0;font-size:0.95rem;}
-    code{background:#f5f5f5;padding:0.2rem 0.4rem;border-radius:3px;
-          font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
-
-    /* ---------- Lists ---------- */
-    ul, ol{margin:0.8rem 0 0.8rem 2rem;}
-    li{margin-bottom:0.4rem;}
-
-    /* ---------- Sections */    
-    .section{margin-bottom:2rem;}
-
-    /* ---------- Boxes for Notice / Info */
-    .note{
-        border-left:4px solid #ffc107;
-        background:#fff8e1;
-        padding:0.8rem 1rem;
-        margin:1rem 0;
-    }
-    .important{
-        border-left:4px solid #e74c3c;
-        background:#fdecea;
-        padding:0.8rem 1rem;
-        margin:1rem 0;
-    }
-
-    /* ---------- Footer */
-    footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #ddd;
-           font-size:0.9rem;color:#777;text-align:center;}
-  </style>
-</head>
-<body>
 
 <h1>Skylad Backend Assignment</h1>
 <p>A comprehensive backend service for document management with folders, tags, OCR webhooks, and RBAC.</p>
@@ -457,4 +397,5 @@ Authorization: Bearer &lt;token&gt;
 
 </body>
 </html>
+
 
