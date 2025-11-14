@@ -1,0 +1,20 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+
+export type UsageDocument = Usage & Document;
+
+@Schema({ timestamps: true })
+export class Usage {
+  @Prop({ required: true, type: String, ref: 'User' })
+  userId: string;
+
+  @Prop({ required: true, default: 5 })
+  credits: number;
+
+  @Prop({ required: true })
+  action: string;
+}
+
+export const UsageSchema = SchemaFactory.createForClass(Usage);
+UsageSchema.index({ userId: 1, createdAt: -1 });
+
