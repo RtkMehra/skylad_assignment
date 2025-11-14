@@ -384,19 +384,15 @@ Authorization: Bearer &lt;token&gt;
   <h2>Known Gaps &amp; Shortcuts</h2>
   <ul>
     <li><strong>File upload</strong> – only metadata is accepted; multipart handling is missing.</li>
-    <li><strong>JWT generation</strong> – done via CLI scripts; a proper login endpoint is not present.</li>
     <li><strong>Error handling</strong> – generic HTTP exceptions; production would need richer error bodies.</li>
     <li><strong>Validation</strong> – some edge‑case scope checks could be stricter.</li>
     <li><strong>Indexes</strong> – basic indexes added; further tuning may be required for large datasets.</li>
   </ul>
 </div>
 
-<footer>
-  © 2025 Skylad Team – MIT License
-</footer>
-
 </body>
 </html>
+
 
 
 
