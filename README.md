@@ -1,239 +1,287 @@
-# Skylad Backend Assignment
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skylad Backend Assignment</title>
+  <style>
+    /* ---------- Global Reset ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin:0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+           Roboto, Helvetica, Arial, sans-serif; line-height:1.6; color:#333;
+           background:#f9fafb; padding:2rem; }
 
-A comprehensive backend service for document management with folders, tags, OCR webhooks, and RBAC.
+    /* ---------- Typography ---------- */
+    h1{font-size:2.2rem;margin-top:2.5rem;margin-bottom:1rem;color:#2c3e50;}
+    h2{font-size:1.8rem;margin-top:2rem;margin-bottom:0.8rem;color:#34495e;}
+    h3{font-size:1.5rem;margin-top:1.6rem;margin-bottom:0.6rem;color:#3b5998;}
+    h4{font-size:1.25rem;margin-top:1.2rem;margin-bottom:0.5rem;color:#555;}
+    p{margin:0.8rem 0;}
 
-## Timeline
+    /* ---------- Links ---------- */
+    a{color:#0066cc;text-decoration:none;}
+    a:hover{text-decoration:underline;}
 
-- **Start Date:** 2025-01-13
-- **Submit Date:** 2025-01-13
+    /* ---------- Tables ---------- */
+    table{width:100%;border-collapse:collapse;margin:1rem 0;}
+    th, td{border:1px solid #ddd;padding:0.6rem;text-align:left;}
+    th{background:#eaeaea;}
 
-## Features
+    /* ---------- Code & Pre ---------- */
+    pre{background:#272822;color:#f8f8f2;padding:1rem;overflow:auto;
+        border-radius:4px;margin:1rem 0;font-size:0.95rem;}
+    code{background:#f5f5f5;padding:0.2rem 0.4rem;border-radius:3px;
+          font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;}
 
-### 1. Document & Tagging Model
+    /* ---------- Lists ---------- */
+    ul, ol{margin:0.8rem 0 0.8rem 2rem;}
+    li{margin-bottom:0.4rem;}
 
-- User, Document, Tag, and DocumentTag entities
-- Each document must have exactly one primary tag
-- Support for secondary tags
-- Full-text search with scope filtering
+    /* ---------- Sections */    
+    .section{margin-bottom:2rem;}
 
-### 2. Scoped Actions
+    /* ---------- Boxes for Notice / Info */
+    .note{
+        border-left:4px solid #ffc107;
+        background:#fff8e1;
+        padding:0.8rem 1rem;
+        margin:1rem 0;
+    }
+    .important{
+        border-left:4px solid #e74c3c;
+        background:#fdecea;
+        padding:0.8rem 1rem;
+        margin:1rem 0;
+    }
 
-- Run actions on folders or specific files
-- Mock processor for generating documents and CSV files
-- Usage tracking (5 credits per request)
+    /* ---------- Footer */
+    footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #ddd;
+           font-size:0.9rem;color:#777;text-align:center;}
+  </style>
+</head>
+<body>
 
-### 3. OCR Webhook Ingestion
+<h1>Skylad Backend Assignment</h1>
+<p>A comprehensive backend service for document management with folders, tags, OCR webhooks, and RBAC.</p>
 
-- Content classification (official/ad)
-- Automatic task creation for ads with unsubscribe info
-- Rate limiting (3 tasks per sender per day per user)
+<div class="section">
+  <h2>Timeline</h2>
+  <ul>
+    <li><strong>Start Date:</strong> 2025‑01‑13</li>
+    <li><strong>Submit Date:</strong> 2025‑01‑13</li>
+  </ul>
+</div>
 
-### 4. RBAC & Security
+<div class="section">
+  <h2>Features</h2>
 
-- Roles: admin, support, moderator, user
-- JWT-based authentication
-- Tenant isolation enforced at service level
+  <h3>1️⃣ Document &amp; Tagging Model</h3>
+  <ul>
+    <li>User, Document, Tag, and DocumentTag entities</li>
+    <li>Each document must have exactly one primary tag</li>
+    <li>Support for secondary tags</li>
+    <li>Full‑text search with scope filtering</li>
+  </ul>
 
-### 5. Auditing & Metrics
+  <h3>2️⃣ Scoped Actions</h3>
+  <ul>
+    <li>Run actions on folders or specific files</li>
+    <li>Mock processor for generating documents and CSV files</li>
+    <li>Usage tracking (5 credits per request)</li>
+  </ul>
 
-- Comprehensive audit logging
-- Metrics endpoint for system statistics
+  <h3>3️⃣ OCR Webhook Ingestion</h3>
+  <ul>
+    <li>Content classification (official / ad)</li>
+    <li>Automatic task creation for ads with unsubscribe info</li>
+    <li>Rate limiting – 3 tasks per sender per day per user</li>
+  </ul>
 
-## Tech Stack
+  <h3>4️⃣ RBAC &amp; Security</h3>
+  <ul>
+    <li>Roles: admin, support, moderator, user</li>
+    <li>JWT‑based authentication</li>
+    <li>Tenant isolation enforced at service level</li>
+  </ul>
 
-- **Framework:** NestJS (TypeScript)
-- **Database:** MongoDB with Mongoose
-- **Authentication:** JWT (Passport)
-- **Validation:** class-validator, class-transformer
-- **API Documentation:** Swagger/OpenAPI
+  <h3>5️⃣ Auditing &amp; Metrics</h3>
+  <ul>
+    <li>Comprehensive audit logging</li>
+    <li>Metrics endpoint for system statistics</li>
+  </ul>
+</div>
 
-## Setup
+<div class="section">
+  <h2>Tech Stack</h2>
+  <ul>
+    <li><strong>Framework:</strong> NestJS (TypeScript)</li>
+    <li><strong>Database:</strong> MongoDB with Mongoose</li>
+    <li><strong>Authentication:</strong> JWT (Passport)</li>
+    <li><strong>Validation:</strong> class-validator, class-transformer</li>
+    <li><strong>API Documentation:</strong> Swagger/OpenAPI</li>
+  </ul>
+</div>
 
-### Prerequisites
+<div class="section">
+  <h2>Setup</h2>
 
-- Node.js 18+
-- MongoDB (or use Docker)
-- npm or yarn
+  <h3>Prerequisites</h3>
+  <ul>
+    <li>Node.js 18+</li>
+    <li>MongoDB (or Docker)</li>
+    <li>npm or yarn</li>
+  </ul>
 
-### Installation
-
-```bash
-# Install dependencies
+  <h3>Installation</h3>
+  <pre><code># Install dependencies
 npm install
 
 # Copy environment variables
 cp .env.example .env
 
 # Edit .env and set your MongoDB connection string
-# For MongoDB Atlas, use:
-# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/skylad?appName=Cluster0
-# For local MongoDB:
+# Example for Atlas:
+# MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/skylad?appName=Cluster0
+# Example for local:
 # MONGODB_URI=mongodb://localhost:27017/skylad
-```
+</code></pre>
 
-### Running with Docker
-
-```bash
-# Start MongoDB and API
+  <h3>Running with Docker</h3>
+  <pre><code># Start MongoDB and API
 docker-compose up -d
 
 # Seed the database
 docker-compose exec api npm run seed
-```
+</code></pre>
 
-### Running Locally
+  <h3>Running Locally</h3>
+  <pre><code># Ensure MongoDB is running on localhost:27017
+npm run dev          # starts the API at http://localhost:3000
+npm run seed         # creates demo users and prints JWTs
+</code></pre>
 
-```bash
-# Start MongoDB (if not using Docker)
-# Make sure MongoDB is running on localhost:27017
+  <h3>Swagger Documentation</h3>
+  <ul>
+    <li>Interactive UI: <code>http://localhost:3000/api</code></li>
+    <li>OpenAPI JSON: <code>http://localhost:3000/api-json</code></li>
+    <li>OpenAPI YAML: <code>http://localhost:3000/api-yaml</code></li>
+  </ul>
+  <p>To export the Swagger JSON run <code>npm run swagger:export</code> (server must be running).</p>
+</div>
 
-# Start the API
-npm run dev
+<div class="section">
+  <h2>Scripts</h2>
+  <table>
+    <thead>
+      <tr><th>Command</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>npm run dev</code></td><td>Start dev server with hot‑reload</td></tr>
+      <tr><td><code>npm run build</code></td><td>Compile TypeScript for production</td></tr>
+      <tr><td><code>npm run start:prod</code></td><td>Run the compiled production server</td></tr>
+      <tr><td><code>npm run test</code></td><td>Run unit tests</td></tr>
+      <tr><td><code>npm run test:e2e</code></td><td>Run end‑to‑end tests</td></tr>
+      <tr><td><code>npm run lint</code></td><td>Linter</td></tr>
+      <tr><td><code>npm run seed</code></td><td>Seed demo data + generate JWTs</td></tr>
+      <tr><td><code>npm run token &lt;email&gt;</code></td><td>Generate a JWT for a specific user</td></tr>
+      <tr><td><code>npm run test:api</code></td><td>API endpoint sanity checks (needs server)</td></tr>
+      <tr><td><code>npm run swagger:export</code></td><td>Export OpenAPI JSON to <code>swagger.json</code></td></tr>
+    </tbody>
+  </table>
+</div>
 
-# In another terminal, seed the database
-npm run seed
-```
+<div class="section">
+  <h2>Authentication</h2>
+  <p>All <code>/v1</code> routes require a JWT Bearer token:</p>
+  <pre><code>Authorization: Bearer &lt;your-jwt-token&gt;
+</code></pre>
 
-The API will be available at `http://localhost:3000`
+  <h3>Getting JWT Tokens</h3>
+  <p><strong>Method 1 – Seed script (all demo users)</strong></p>
+  <pre><code>npm run seed
+# output includes tokens for admin, user1, user2, support
+</code></pre>
 
-**Swagger Documentation:**
-
-- Interactive UI: `http://localhost:3000/api`
-- OpenAPI JSON: `http://localhost:3000/api-json`
-- OpenAPI YAML: `http://localhost:3000/api-yaml`
-
-To export the Swagger JSON: `npm run swagger:export` (requires server to be running)
-
-## Scripts
-
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production
-- `npm run start:prod` - Start production server
-- `npm run test` - Run unit tests
-- `npm run test:e2e` - Run end-to-end tests
-- `npm run lint` - Run linter
-- `npm run seed` - Seed database with demo data and generate JWT tokens for all users
-- `npm run token <email>` - Generate a JWT token for a specific user (e.g., `npm run token admin@example.com`)
-- `npm run test:api` - Run API endpoint tests
-- `npm run swagger:export` - Export Swagger/OpenAPI JSON to `swagger.json` (requires server to be running)
-
-## API Reference
-
-All endpoints are prefixed with `/v1`. Authentication is required for all endpoints using JWT Bearer tokens.
-
-### Authentication
-
-Include the JWT token in the Authorization header:
-
-```
-Authorization: Bearer <your-jwt-token>
-```
-
-#### Getting JWT Tokens
-
-There are two ways to get JWT tokens:
-
-**Method 1: Run the seed script (gets all tokens at once)**
-
-```bash
-npm run seed
-```
-
-This will output JWT tokens for admin, user1, user2, and support users.
-
-**Method 2: Generate token for a specific user (recommended)**
-
-```bash
-# Generate token for admin
+  <p><strong>Method 2 – Generate a token for a specific user</strong></p>
+  <pre><code># admin
 npm run token admin@example.com
 
-# Generate token for user1
+# user1
 npm run token user1@example.com
 
-# Generate token for user2
+# user2
 npm run token user2@example.com
 
-# Generate token for support
+# support
 npm run token support@example.com
-```
+</code></pre>
 
-The seed script creates these demo users:
+  <p>Demo users created by the seed script:</p>
+  <ul>
+    <li><code>admin@example.com</code> – admin role</li>
+    <li><code>user1@example.com</code> – user role</li>
+    <li><code>user2@example.com</code> – user role</li>
+    <li><code>support@example.com</code> – support role</li>
+  </ul>
+</div>
 
-- `admin@example.com` (admin role)
-- `user1@example.com` (user role)
-- `user2@example.com` (user role)
-- `support@example.com` (support role)
+<div class="section">
+  <h2>API Reference</h2>
+  <p>All endpoints are prefixed with <code>/v1</code> and require authentication.</p>
 
-### Document APIs
+  <h3>Document APIs</h3>
 
-#### Upload Document
-
-```bash
-POST /v1/docs
+  <h4>Upload Document</h4>
+  <pre><code>POST /v1/docs
 Content-Type: application/json
-Authorization: Bearer <token>
+Authorization: Bearer &lt;token&gt;
 
 {
   "filename": "invoice-2025-01.pdf",
   "mime": "application/pdf",
   "textContent": "Invoice content...",
   "primaryTag": "invoices-2025",
-  "secondaryTags": ["january", "billing"]
+  "secondaryTags": ["january","billing"]
 }
-```
+</code></pre>
 
-#### List Folders
+  <h3>Folder &amp; Search APIs</h3>
 
-```bash
-GET /v1/folders
-Authorization: Bearer <token>
-```
+  <h4>List Folders</h4>
+  <pre><code>GET /v1/folders
+Authorization: Bearer &lt;token&gt;
+</code></pre>
 
-Response:
-
-```json
-[
+  <p>Response example:</p>
+  <pre><code>[
   { "name": "invoices-2025", "count": 5 },
-  { "name": "legal", "count": 2 }
+  { "name": "legal",        "count": 2 }
 ]
-```
+</code></pre>
 
-#### Get Folder Documents
+  <h4>Get Documents in a Folder</h4>
+  <pre><code>GET /v1/folders/{tag}/docs
+Authorization: Bearer &lt;token&gt;
+</code></pre>
+  <p>Example: <code>GET /v1/folders/invoices-2025/docs</code></p>
 
-```bash
-GET /v1/folders/{tag}/docs
-Authorization: Bearer <token>
-```
+  <h4>Full‑Text Search</h4>
+  <pre><code>GET /v1/search?q=invoice&scope=files&ids[]=doc1&ids[]=doc2
+Authorization: Bearer &lt;token&gt;
+</code></pre>
+  <ul>
+    <li><code>q</code> – required search term</li>
+    <li><code>scope</code> – optional: <code>folder</code> or <code>files</code></li>
+    <li><code>ids[]</code> – optional array of document IDs (only when <code>scope=files</code>)</li>
+  </ul>
+  <p class="note"><strong>Note:</strong> You cannot mix a folder scope with file IDs.</p>
 
-Example:
+  <h3>Actions APIs</h3>
 
-```bash
-GET /v1/folders/invoices-2025/docs
-```
-
-#### Search Documents
-
-```bash
-GET /v1/search?q=invoice&scope=files&ids[]=doc1&ids[]=doc2
-Authorization: Bearer <token>
-```
-
-Query parameters:
-
-- `q` (required): Search query
-- `scope` (optional): `folder` or `files`
-- `ids[]` (optional): Array of document IDs (only with `scope=files`)
-
-**Note:** Cannot use both folder scope and file IDs.
-
-### Actions APIs
-
-#### Run Scoped Action
-
-```bash
-POST /v1/actions/run
+  <h4>Run Scoped Action</h4>
+  <pre><code>POST /v1/actions/run
 Content-Type: application/json
-Authorization: Bearer <token>
+Authorization: Bearer &lt;token&gt;
 
 {
   "scope": {
@@ -241,195 +289,174 @@ Authorization: Bearer <token>
     "name": "invoices-2025"
   },
   "messages": [
-    {
-      "role": "user",
-      "content": "make a CSV of vendor totals"
-    }
+    { "role": "user", "content": "make a CSV of vendor totals" }
   ],
-  "actions": ["make_document", "make_csv"]
+  "actions": ["make_document","make_csv"]
 }
-```
+</code></pre>
 
-For file scope:
-
-```json
-{
+  <p>File‑scope example:</p>
+  <pre><code>{
   "scope": {
     "type": "files",
-    "ids": ["doc1", "doc2"]
+    "ids": ["doc1","doc2"]
   },
   "messages": [...],
   "actions": ["make_document"]
 }
-```
+</code></pre>
+  <p class="note"><strong>Note:</strong> Folder scope and file IDs cannot be used together.</p>
 
-**Note:** Cannot use both folder scope and file IDs.
+  <h4>Get Monthly Usage</h4>
+  <pre><code>GET /v1/actions/usage/month?year=2025&month=1
+Authorization: Bearer &lt;token&gt;
+</code></pre>
 
-#### Get Usage for Month
-
-```bash
-GET /v1/actions/usage/month?year=2025&month=1
-Authorization: Bearer <token>
-```
-
-### Webhook APIs
-
-#### OCR Webhook
-
-```bash
-POST /v1/webhooks/ocr
+  <h3>OCR Webhook API</h3>
+  <pre><code>POST /v1/webhooks/ocr
 Content-Type: application/json
-Authorization: Bearer <token>
+Authorization: Bearer &lt;token&gt;
 
 {
   "source": "scanner-01",
   "imageId": "img_123",
   "text": "LIMITED TIME SALE… unsubscribe: mailto:stop@brand.com",
-  "meta": {
-    "address": "123 Main St"
-  }
+  "meta": { "address": "123 Main St" }
 }
-```
+</code></pre>
 
-### Metrics API
-
-#### Get Metrics
-
-```bash
-GET /v1/metrics
-Authorization: Bearer <token>
-```
-
-Response:
-
-```json
-{
+  <h3>Metrics API</h3>
+  <pre><code>GET /v1/metrics
+Authorization: Bearer &lt;token&gt;
+</code></pre>
+  <p>Response example:</p>
+  <pre><code>{
   "docs_total": 123,
   "folders_total": 7,
   "actions_month": 42,
   "tasks_today": 5
 }
+</code></pre>
+  <p class="note"><strong>Note:</strong> Only users with <code>admin</code>, <code>support</code> or <code>moderator</code> roles may call this endpoint.</p>
+
+  <h2>RBAC Roles</h2>
+  <ul>
+    <li><strong>user</strong> – CRUD on own docs/tags, run actions, view usage</li>
+    <li><strong>support</strong> – Read‑only access</li>
+    <li><strong>moderator</strong> – Read‑only access (future‑proof)</li>
+    <li><strong>admin</strong> – Full access to everything</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Design Decisions &amp; Trade‑offs</h2>
+
+  <h3>Architecture</h3>
+  <ul>
+    <li><strong>NestJS</strong> – modular, DI‑friendly, great TypeScript support.</li>
+    <li><strong>MongoDB</strong> – flexible schema, built‑in text search.</li>
+  </ul>
+
+  <h3>Data Modeling</h3>
+  <ul>
+    <li><strong>Primary Tag Constraint</strong> – enforced in service layer via <code>isPrimary: true</code>. Application‑level validation gives clearer errors than a DB‑level unique index.</li>
+    <li><strong>Tenant Isolation</strong> – every query automatically includes <code>{ ownerId: req.user.id }</code>, avoiding complex middleware.</li>
+  </ul>
+
+  <h3>Security</h3>
+  <ul>
+    <li><strong>JWT</strong> – stateless, perfect for API‑first services.</li>
+    <li><strong>RBAC</strong> – implemented with NestJS guards and custom decorators.</li>
+  </ul>
+
+  <h3>Trade‑offs</h3>
+  <table>
+    <thead>
+      <tr><th>Area</th><th>Current Choice</th><th>Production‑grade Alternative</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Full‑text search</td><td>MongoDB text index</td><td>Elasticsearch</td></tr>
+      <tr><td>Rate limiting</td><td>In‑process counters</td><td>Redis‑based distributed limiter</td></tr>
+      <tr><td>Audit logging</td><td>Synchronous DB writes</td><td>Async queue (Kafka, RabbitMQ)</td></tr>
+      <tr><td>Mock processor</td><td>Deterministic stub</td><td>Real LLM / AI service</td></tr>
+      <tr><td>File storage</td><td>Metadata only</td><td>S3 / MinIO</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Testing</h2>
+
+  <h3>Unit Tests</h3>
+  <pre><code>npm run test
+</code></pre>
+
+  <h3>End‑to‑End Tests</h3>
+  <pre><code>npm run test:e2e
+</code></pre>
+
+  <h3>API Endpoint Tests</h3>
+  <pre><code>npm run test:api   # server must be running (npm run dev)
+</code></pre>
+
+  <p>Tests validate:</p>
+  <ul>
+    <li>Folder vs file scope validation</li>
+    <li>Primary‑tag uniqueness</li>
+    <li>JWT isolation &amp; role enforcement</li>
+    <li>OCR webhook classification &amp; rate‑limit logic</li>
+    <li>Credits tracking on scoped actions</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>What I'd Do Next (Given More Time)</h2>
+  <ol>
+    <li>Enhanced Search – integrate Elasticsearch.</li>
+    <li>File Storage – connect to S3 / MinIO for real binary storage.</li>
+    <li>Real OCR – replace mock classifier with a cloud OCR provider.</li>
+    <li>Caching – Redis for hot data &amp; rate limiting.</li>
+    <li>Monitoring – Prometheus metrics, OpenTelemetry tracing.</li>
+    <li>CI/CD – GitHub Actions pipeline.</li>
+    <li>Database Migrations – add a migration system.</li>
+    <li>WebSockets – stream real‑time processing status.</li>
+    <li>Batch Operations – bulk uploads and bulk actions.</li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>Project Structure</h2>
+  <pre><code>src/
+├── auth/              # JWT strategy, guards, decorators
+│   ├── guards/
+│   └── *.ts
+├── documents/        # Document CRUD
+│   ├── dto/
+│   └── *.ts
+├── actions/          # Scoped actions logic
+├── webhooks/         # OCR webhook handling
+├── metrics/          # Metrics controller
+├── audit/            # Audit logging service
+├── schemas/          # Mongoose schemas
+└── scripts/          # seed, token generation, etc.
+</code></pre>
+</div>
+
+<div class="section">
+  <h2>Known Gaps &amp; Shortcuts</h2>
+  <ul>
+    <li><strong>File upload</strong> – only metadata is accepted; multipart handling is missing.</li>
+    <li><strong>JWT generation</strong> – done via CLI scripts; a proper login endpoint is not present.</li>
+    <li><strong>Error handling</strong> – generic HTTP exceptions; production would need richer error bodies.</li>
+    <li><strong>Validation</strong> – some edge‑case scope checks could be stricter.</li>
+    <li><strong>Indexes</strong> – basic indexes added; further tuning may be required for large datasets.</li>
+  </ul>
+</div>
+
+<footer>
+  © 2025 Skylad Team – MIT License
+</footer>
+
+</body>
+</html>
 ```
-
-**Note:** Requires admin, support, or moderator role.
-
-## RBAC Roles
-
-- **user**: CRUD on own docs/tags, run actions, view usage
-- **support**: Read-only access
-- **moderator**: Read-only access
-- **admin**: Full access to all resources
-
-## Design Decisions & Tradeoffs
-
-### Architecture
-
-- **NestJS**: Chosen for its modular architecture, dependency injection, and built-in support for TypeScript.
-- **MongoDB**: Flexible schema for document metadata and tags, with good support for full-text search.
-
-### Data Modeling
-
-- **Primary Tag Constraint**: Enforced at application level through DocumentTag schema with `isPrimary: true`. Could be enforced at database level with a unique index, but application-level validation provides better error messages.
-- **Tenant Isolation**: Implemented at service level by filtering all queries by `ownerId`. This ensures users can only access their own data without requiring complex middleware.
-
-### Security
-
-- **JWT Authentication**: Simple and stateless, suitable for API-first architecture.
-- **Role-Based Access**: Implemented using NestJS guards and decorators for clean, declarative authorization.
-
-### Tradeoffs
-
-1. **Full-text Search**: Using MongoDB's text index. For production, consider Elasticsearch for better search capabilities.
-2. **Mock Processor**: Deterministic but simple. In production, would integrate with actual AI/ML services.
-3. **Rate Limiting**: Implemented at application level. For production, consider Redis-based distributed rate limiting.
-4. **Audit Logging**: Synchronous logging. For high-throughput, consider async logging with a queue.
-
-## Testing
-
-### Unit Tests
-
-```bash
-npm run test
-```
-
-Tests cover:
-
-- Folder vs file scope validation
-- Primary tag uniqueness
-- JWT isolation and role enforcement
-- Webhook classification and rate-limiting
-- Credits tracking on scoped actions
-
-### E2E Tests
-
-```bash
-npm run test:e2e
-```
-
-### API Endpoint Tests
-
-Test all API endpoints to verify they work correctly:
-
-```bash
-npm run test:api
-```
-
-**Note:** Make sure the API server is running (`npm run dev`) before running the API tests.
-
-The test script will verify:
-
-- Document upload and retrieval
-- Folder listing and document filtering
-- Full-text search with different scopes
-- Scoped actions (folder and files)
-- Usage tracking
-- OCR webhook processing and classification
-- Metrics endpoint
-- RBAC and tenant isolation
-- Input validation
-
-## What I'd Do Next (Given More Time)
-
-1. **Enhanced Search**: Implement Elasticsearch for better full-text search with faceting and filtering.
-2. **File Storage**: Integrate with S3 or similar for actual file storage (currently only metadata stored).
-3. **Real OCR Integration**: Replace mock classification with actual OCR service integration.
-4. **Caching**: Add Redis for caching frequently accessed data and rate limiting.
-5. **API Documentation**: ✅ Swagger/OpenAPI documentation available at `/api` endpoint with comprehensive examples and flows. Postman collection included (`Skylad_API_Collection.postman_collection.json`).
-6. **Monitoring**: Add Prometheus metrics and distributed tracing.
-7. **CI/CD**: Set up GitHub Actions for automated testing and deployment.
-8. **Database Migrations**: Add migration system for schema changes.
-9. **WebSocket Support**: Real-time updates for document processing status.
-10. **Batch Operations**: Support for bulk document uploads and operations.
-
-## Project Structure
-
-```
-src/
-├── auth/              # Authentication & authorization
-│   ├── guards/       # JWT and role guards
-│   ├── decorators/   # Custom decorators
-│   └── *.ts          # JWT strategy, users service
-├── documents/        # Document management
-│   ├── dto/         # Data transfer objects
-│   └── *.ts         # Controllers, services
-├── actions/         # Scoped actions
-├── webhooks/        # OCR webhook processing
-├── metrics/         # Metrics endpoint
-├── audit/           # Audit logging
-├── schemas/         # MongoDB schemas
-└── scripts/         # Utility scripts (seed, etc.)
-```
-
-## Known Gaps & Shortcuts
-
-1. **File Upload**: Currently accepts file metadata only. Real file upload would require multipart/form-data handling.
-2. **JWT Generation**: Tokens can be generated using `npm run token <email>` script. For production, consider adding a proper authentication endpoint (login/register).
-3. **Error Handling**: Basic error handling. Production would need more comprehensive error responses.
-4. **Validation**: Some edge cases in scope validation could be more robust.
-5. **Database Indexes**: Some indexes added, but could be optimized further based on query patterns.
-
-## License
-
-MIT
-#   s k y l a d _ a s s i g n m e n t  
- 
